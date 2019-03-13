@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="enph_ai" type="find_cube.py" name="find_cube" output="screen">
+	</node>
+</launch>
