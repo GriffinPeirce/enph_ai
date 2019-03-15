@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="enph_ai" type="drive_to_red.py" name="drive_to_red" output="screen">
+	</node>
+</launch>
