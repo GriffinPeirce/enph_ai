@@ -1,10 +1,10 @@
 <package format="2">
   <name>enph_ai</name>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <description>
-  Package handles AI navigation for Anki Vector robot
+  Package handles AI navigation for competition robot
   </description>
-  <maintainer email="griff.peirce@gmail.com">Griffin Peirce</maintainer>
+  <maintainer email="griffin.peirce@alumni.ubc.ca">Griffin Peirce</maintainer>
   <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>

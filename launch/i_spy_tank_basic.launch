@@ -1,0 +1,45 @@
+<launch>
+
+	<arg name="use_joy" default="true"	/>
+	<arg name="joy_dev" default="/dev/input/js0"	/>
+
+	<!-- I-Spy Mini Tank Driver -->
+	<node 	ns="ism_1"
+			pkg="i_spy_tank_driver" type="ism_driver.py" name="ism_driver_node respawn="true"	/>
+			output="screen">
+			<rosparam name="ip" value="192.168.1.3"	/>
+			<rosparam name="video_port" value="8151"	/>
+			<rosparam name="motors_port" value="8151"	/>
+	</node>
+
+	<node	ns="ism_2"
+			pkg="i_spy_tank_driver" type="ism_driver.py" name="ism_driver_node respawn="true"	/>
+			output="screen">
+			<rosparam name="ip" value="192.168.1.4"	/>
+			<rosparam name="video_port" value="8151"	/>
+			<rosparam name="motors_port" value="8151"	/>
+
+	</node>
+
+	<!-- Control -->
+	<node pkg="twist_mux" type="twist_mux" name="twist_mux_node">
+		<rosparam command="load" file="$(find i_spy_tank_driver)/config/twist_mux.yaml"	/>
+	</node>
+
+	<!-- Teleoperation -->
+	<group 	if="$(arg use_joy)"
+			ns="joy_teleop">
+		<rosparam command="load" file="$(find i_spy_tank_driver)/config/teleop.yaml"	/>
+
+		<node pkg="joy" type="joy_node" name="joy_node"	>
+			<param name="dev" value="$(arg joy_dev)"	/>
+		</node>
+
+		<node pkg="teleop_twist_joy" type="teleop_node" name="teleop_node"	/>
+	</group>
+
+	<!-- Visualization -->
+	<node 	pkg="rviz" type="rviz" name="rviz"
+			output="screen"	/>
+
+</launch>
