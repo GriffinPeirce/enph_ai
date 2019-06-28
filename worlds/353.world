@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <model name="Walls">
+      <static>true</static>
+      <pose>0 0 0  0 0 0</pose>
+      <link name="North Wall">
+        <pose>0 0 0.05 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.22 0.02 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.22 0.02 0.1</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+      <link name="South Wall">
+        <pose> 0 2.44 .05 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.22 0.02 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.22 0.02 0.1</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+      <link name="East Wall">
+        <pose> 0.61 1.22 .05 0 0 1.5708</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2.44 0.02 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.44 0.02 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient> 1 1 1 1 </ambient>
+            <diffuse> 1 1 1 1 </diffuse>
+            <specular> .1 .1 .1 1 </specular>
+            <emissive> 0 0 0 0 </emissive>
+          </material>
+        </visual>
+      </link>
+      <link name="West Wall">
+        <pose> -0.61 1.22 .05 0 0 1.5708</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2.44 0.02 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2.44 0.02 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient> 1 1 1 1 </ambient>
+            <diffuse> 1 1 1 1 </diffuse>
+            <specular> .1 .1 .1 1 </specular>
+            <emissive> 0 0 0 0 </emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+   </world>
+</sdf>
