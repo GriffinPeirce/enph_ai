@@ -4,6 +4,7 @@
 #include <gazebo/common/Plugin.hh>
 #include <gazebo/transport/transport.hh>
 #include <ros/ros.h>
+#include <std_msgs/Bool.h>
 
 namespace gazebo
 {
@@ -36,6 +37,14 @@ public:
   /// \brief gazebo node pointer
   private: transport::NodePtr collisionNode;
 
+  /// \brief ROS node handle.
+  private: std::unique_ptr<ros::NodeHandle> rosNode;
+
+  /// \brief Publisher for the collision.
+  private: ros::Publisher contactPub;
+
+  /// \brief ROS Contact Bool Msg.
+  private: std_msgs::Bool contactMsg;
 };
 
 }  // namespace gazebo

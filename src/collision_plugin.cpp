@@ -3,6 +3,7 @@
 #include <gazebo/common/Plugin.hh>
 #include <gazebo/transport/transport.hh>
 #include <ros/ros.h>
+#include <std_msgs/Bool.h>
 
 namespace gazebo
 {
@@ -30,6 +31,10 @@ void CollisionPlugin::Load(physics::WorldPtr _world, sdf::ElementPtr _sdf)
   this->collisionNode->Init();
   this->collisionSub = this->collisionNode->Subscribe("/gazebo/default/physics/contacts",
                                           &CollisionPlugin::OnCollisionMsg, this);
+
+  // Initialize ROS transport.
+  this->rosNode.reset(new ros::NodeHandle());
+  this->contactPub = this->rosNode->advertise<std_msgs::Bool>("/isHit", 100);
 }
 
 void CollisionPlugin::OnCollisionMsg(ConstContactsPtr &_contacts)
@@ -42,7 +47,10 @@ void CollisionPlugin::OnCollisionMsg(ConstContactsPtr &_contacts)
     isHit = isHit || ((collisionStr1.find("robot") != std::string::npos && collisionStr2.find("Walls") != std::string::npos) ||
                       (collisionStr1.find("Walls") != std::string::npos && collisionStr2.find("robot") != std::string::npos));
   }
-  ROS_INFO_STREAM_THROTTLE(2, "isHit: " << isHit);
+
+  // publish a ROS MSG
+  this->contactMsg.data = isHit;
+  this->contactPub.publish(this->contactMsg);
 }
 
 }  // namespace gazebo
