@@ -109,15 +109,16 @@
       </link>
     </model>
 
-   <!-- TYLER ADDITION 2019-07-04 Thu 12:31 PM -->
-   <physics type='ode'>
-     <max_step_size>0.012</max_step_size>
-     <real_time_factor>10</real_time_factor>
-     <real_time_update_rate>1000</real_time_update_rate>
-   </physics>
+    <!-- TYLER ADDITION 2019-07-04 Thu 12:31 PM -->
+    <physics type='ode'>
+      <max_step_size>0.012</max_step_size>
+      <real_time_factor>10</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
 
-   <!-- <plugin filename="libcollision_plugin.so"
-           name="collision_plugin">
-   </plugin> -->
-   </world>
+    <!-- <plugin filename="libcollision_plugin.so"
+          name="collision_plugin">
+    </plugin> -->
+    <plugin name="enph_ai" filename="libenph_ai.so"/>
+  </world>
 </sdf>
