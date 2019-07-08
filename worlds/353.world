@@ -109,13 +109,16 @@
       </link>
     </model>
 
-    <!-- TYLER ADDITION 2019-07-04 Thu 12:31 PM -->
+    <!-- Change speed of simulation by increasing max_step_size AND real_time_factor -->
+    <!-- Note: Increasing it too high may reduce accuracy of physics simulation -->
     <physics type='ode'>
-      <max_step_size>0.012</max_step_size>
+      <!-- <max_step_size>0.012</max_step_size> -->
+      <max_step_size>0.001</max_step_size>
       <real_time_factor>10</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
     </physics>
 
+    <!-- Setup collision plugin -->
     <plugin name="collision_plugin" filename="libcollision_plugin.so"/>
   </world>
 </sdf>

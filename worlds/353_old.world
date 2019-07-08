@@ -1,4 +1,4 @@
-<?xml version="0.0"?>
+<?xml version="1.0"?>
 <sdf version="1.4">
   <world name="default">
     <include>
@@ -91,16 +91,5 @@
         </visual>
       </link>
     </model>
-
-   <!-- TYLER ADDITION 2019-07-04 Thu 12:31 PM -->
-   <physics type='ode'> -->
-     <max_step_size>0.012</max_step_size>
-     <real_time_factor>10</real_time_factor>
-     <real_time_update_rate>1000</real_time_update_rate>
-   </physics>
-
-   <!-- <plugin filename="libcollision_plugin.so"
-           name="collision_plugin">
-   </plugin> -->
-   </world>
+  </world>
 </sdf>
