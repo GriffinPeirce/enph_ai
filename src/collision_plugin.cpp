@@ -25,6 +25,7 @@ void CollisionPlugin::Load(physics::WorldPtr _world, sdf::ElementPtr _sdf)
     return;
   }
 
+  // Setup collision node and sub
   ROS_INFO("Initializing collision plugin!");
   this->collisionNode->Init();
   this->collisionSub = this->collisionNode->Subscribe("/gazebo/default/physics/contacts",
@@ -33,12 +34,15 @@ void CollisionPlugin::Load(physics::WorldPtr _world, sdf::ElementPtr _sdf)
 
 void CollisionPlugin::OnCollisionMsg(ConstContactsPtr &_contacts)
 {
-  ROS_INFO("On collision msg");
+  bool isHit = false;
+  // Check each collision. If it involves robot and wall, then it is hit
   for (unsigned int i = 0; i < _contacts->contact_size(); ++i) {
     std::string collisionStr1 = _contacts->contact(i).collision1();
     std::string collisionStr2 = _contacts->contact(i).collision2();
-    ROS_INFO_STREAM("Collision between " << collisionStr1 << " and " << collisionStr2);
+    isHit = isHit || ((collisionStr1.find("robot") != std::string::npos && collisionStr2.find("Walls") != std::string::npos) ||
+                      (collisionStr1.find("Walls") != std::string::npos && collisionStr2.find("robot") != std::string::npos));
   }
+  ROS_INFO_STREAM_THROTTLE(2, "isHit: " << isHit);
 }
 
 }  // namespace gazebo
