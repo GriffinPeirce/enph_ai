@@ -27,23 +27,6 @@
           </geometry>
         </visual>
       </link>
-      <link name="Middle Wall">
-        <pose>0.61 1.22 0.05 0 0 0</pose>
-        <collision name="collision">
-          <geometry>
-            <box>
-              <size>1.22 0.02 0.1</size>
-            </box>
-          </geometry>
-        </collision>
-        <visual name="visual">
-          <geometry>
-            <box>
-              <size>1.22 0.02 0.1</size>
-            </box>
-          </geometry>
-        </visual>
-      </link>
       <link name="South Wall">
         <pose> 0 2.44 .05 0 0 0</pose>
         <collision name="collision">
@@ -108,17 +91,5 @@
         </visual>
       </link>
     </model>
-
-    <!-- Change speed of simulation by increasing max_step_size AND real_time_factor -->
-    <!-- Note: Increasing it too high may reduce accuracy of physics simulation -->
-    <physics type='ode'>
-      <!-- <max_step_size>0.012</max_step_size> -->
-      <max_step_size>0.001</max_step_size>
-      <real_time_factor>10</real_time_factor>
-      <real_time_update_rate>1000</real_time_update_rate>
-    </physics>
-
-    <!-- Setup collision plugin -->
-    <plugin name="collision_plugin" filename="libcollision_plugin.so"/>
   </world>
 </sdf>

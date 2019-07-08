@@ -7,6 +7,12 @@
   <maintainer email="griffin.peirce@alumni.ubc.ca">Griffin Peirce</maintainer>
   <license>BSD</license>
 
+  <export>
+    <gazebo_ros plugin_path="${prefix}/lib" gazebo_media_path="${prefix}" />
+  </export>
+
+  <depend>roscpp</depend>
+  <depend>gazebo_ros</depend>
   <buildtool_depend>catkin</buildtool_depend>
 
   <exec_depend>rospy</exec_depend>
