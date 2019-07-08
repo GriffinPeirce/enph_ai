@@ -1,4 +1,4 @@
-#include <enph_ai/simple_world_plugin.h>
+#include <enph_ai/collision_plugin.h>
 
 #include <gazebo/common/Plugin.hh>
 #include <ros/ros.h>
@@ -7,31 +7,24 @@ namespace gazebo
 {
 
 // Register plugin with gazebo
-GZ_REGISTER_WORLD_PLUGIN(WorldPluginTutorial);
+GZ_REGISTER_WORLD_PLUGIN(CollisionPlugin);
 
-WorldPluginTutorial::WorldPluginTutorial()
+CollisionPlugin::CollisionPlugin()
 {
 }
 
-void WorldPluginTutorial::Load(physics::WorldPtr _world, sdf::ElementPtr _sdf)
+void CollisionPlugin::Load(physics::WorldPtr _world, sdf::ElementPtr _sdf)
 {
 
   // Make sure the ROS node for Gazebo has already been initialized
   if (!ros::isInitialized())
   {
     ROS_FATAL_STREAM("A ROS node for Gazebo has not been initialized, unable to load plugin. "
-    << "Load the Gazebo system plugin 'libenph_ai.so' in the enph_ai package)");
+    << "Load the Gazebo system plugin 'libcollision_plugin.so' in the enph_ai package)");
     return;
   }
 
   ROS_INFO("Hello World!");
 }
-
-
-void WorldPluginTutorial::Update()
-{
-  ROS_INFO("Update()");
-}
-
 
 }  // namespace gazebo

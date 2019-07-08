@@ -116,9 +116,6 @@
       <real_time_update_rate>1000</real_time_update_rate>
     </physics>
 
-    <!-- <plugin filename="libcollision_plugin.so"
-          name="collision_plugin">
-    </plugin> -->
-    <plugin name="enph_ai" filename="libenph_ai.so"/>
+    <plugin name="collision_plugin" filename="libcollision_plugin.so"/>
   </world>
 </sdf>
