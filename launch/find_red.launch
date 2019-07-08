@@ -1,4 +1,0 @@
-<launch>
-	<node pkg="enph_ai" type="find_red.py" name="find_red" output="screen">
-	</node>
-</launch>

@@ -1,4 +1,8 @@
 <launch>
 	<include file="$(find adeept_awr_gazebo)/launch/adeept_awr_urdf.launch"/>
 	<include file="$(find enph_ai)/launch/desktop.launch"/>
+	<node pkg="adeept_awr_gazebo" type="velocity_clamp.py" name="fake_adeept_driver" output="screen">
+		<param name="src_topic" value="cmd_vel"/>
+		<param name="dst_topic" value="skid_vel"/>
+	</node>
 </launch>
