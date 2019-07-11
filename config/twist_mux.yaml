@@ -3,12 +3,12 @@ topics:
   name    : joy
   topic   : joy_vel
   timeout : 0.5
-  priority: 10
+  priority: 2
 -
   name    : enph_ai
   topic   : ai_vel
   timeout : 0.5
-  priority: 90
+  priority: 1
 
 locks:
 - name    : e_stop

@@ -5,4 +5,5 @@
 		<param name="src_topic" value="cmd_vel"/>
 		<param name="dst_topic" value="skid_vel"/>
 	</node>
+	<node pkg="enph_ai" type="drive_point_to_point.py" name="Point2PointController" output="screen" respawn="true"/>
 </launch>
