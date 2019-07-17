@@ -29,8 +29,9 @@
         </geometry>
         <material>
           <script>
-            <uri>model://track/materials/scripts/spa.material</uri>
-            <name>MyGroundPlane/Image</name>
+            <uri>file://track/materials/scripts</uri>
+            <uri>file://track/materials/textures</uri>
+            <name>spa</name>
           </script>
         </material>
       </visual>
