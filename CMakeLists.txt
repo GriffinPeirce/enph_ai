@@ -8,11 +8,6 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_action_files(
-  DIRECTORY action
-  FILES GoalPose.action
-)
-
 generate_messages(
   DEPENDENCIES actionlib_msgs std_msgs geometry_msgs
 )

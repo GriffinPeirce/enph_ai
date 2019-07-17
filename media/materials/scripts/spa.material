@@ -1,0 +1,13 @@
+material spa{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture spa.jpg
+                scale 1 1
+            }
+        }   
+    }
+}
