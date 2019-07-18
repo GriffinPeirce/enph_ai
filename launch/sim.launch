@@ -1,6 +1,6 @@
 <launch>
 	<include file="$(find adeept_awr_gazebo)/launch/adeept_awr_urdf.launch">
-		<env name="GAZEBO_RESOURCE_PATH" value="$(find enph_ai)/models/materials"/>
+		<env name="GAZEBO_RESOURCE_PATH" value="$(find enph_ai)"/>
 		<env name="GAZEBO_MODEL_PATH" value="$(find enph_ai)/models"/>
 	</include>
 	<include file="$(find enph_ai)/launch/desktop.launch"/>
