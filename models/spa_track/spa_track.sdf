@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <sdf version="1.4">
-<model name="track">
+<model name="spa_track">
   <static>true</static>
     <link name="link">
       <collision name="collision">
@@ -32,7 +32,7 @@
           <script>
             <uri>file://materials/scripts</uri>
             <uri>file://materials/textures</uri>
-            <name>spa</name>
+            <name>spa_track</name>
           </script>
         </material>
       </visual>

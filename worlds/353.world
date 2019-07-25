@@ -2,7 +2,7 @@
 <sdf version="1.4">
   <world name="default">
     <include>
-      <uri>model://track</uri>
+      <uri>model://monza_track</uri>
     </include>
     <include>
       <uri>model://sun</uri>

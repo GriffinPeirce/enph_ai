@@ -47,8 +47,10 @@ class line_follower():
           print(err)
           if (abs(err) < w*self.deadband_factor):
             vel.linear.x = 0.271
+            print("Linear: ", vel.linear.x)
           else:
-            vel.angular.z = -float(err) / 800        
+            vel.angular.z = -float(err) / 2000        
+            print("Angular: ",vel.angular.z)
           # END CONTROL
         cv2.line(cv_image,(int(w*(0.5-self.deadband_factor)),0),(int(w*(0.5-self.deadband_factor)),h),(0,255,0),thickness=5)
         cv2.line(cv_image,(int(w*(0.5+self.deadband_factor)),0),(int(w*(0.5+self.deadband_factor)),h),(0,255,0),thickness=5)
