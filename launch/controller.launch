@@ -1,0 +1,4 @@
+<launch>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner"
+          args="$(find ackermann_vehicle_gazebo)/config/em_3905_joint_ctrlr_params.yaml"/>
+</launch>
