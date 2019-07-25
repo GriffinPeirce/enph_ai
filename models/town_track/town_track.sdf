@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <sdf version="1.4">
-<model name="spa_track">
+<model name="town_track">
   <static>true</static>
     <link name="link">
       <collision name="collision">
         <geometry>
           <plane>
             <normal>0 0 1</normal>
-            <size>1.22 2.44</size>
           </plane>
         </geometry>
         <surface>
@@ -25,14 +24,13 @@
         <geometry>/usr/local/share/gazebo/models
           <plane>
             <normal>0 0 1</normal>
-            <size>1.22 2.44</size>
           </plane>
         </geometry>
         <material>
           <script>
             <uri>file://materials/scripts</uri>
             <uri>file://materials/textures</uri>
-            <name>spa</name>
+            <name>town</name>
           </script>
         </material>
       </visual>

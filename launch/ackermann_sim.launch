@@ -1,7 +1,7 @@
 <launch>
 	<include file="$(find enph_ai)/launch/desktop.launch"/>
 	<node pkg="enph_ai" name="cmd_vel_to_ackermann_drive" type="cmd_vel_to_ackermann_drive.py">
-		<param name="wheelbase" value="0.13"/>
+		<param name="wheelbase" value="0.335"/>
 		<!-- <param name="twist_cmd_topic" value="/cmd_vel"/> -->
 		<param name="ackermann_cmd_topic" value="/ackermann_vehicle/ackermann_cmd"/>
 	</node>
