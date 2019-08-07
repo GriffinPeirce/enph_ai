@@ -1,7 +1,7 @@
 <launch>
 	<include file="$(find adeept_car_gazebo)/launch/adeept_car_urdf.launch">
-		<env name="GAZEBO_RESOURCE_PATH" value="$(find enph_ai)"/>
-		<env name="GAZEBO_MODEL_PATH" value="$(find enph_ai)/models"/>
+		<env name="GAZEBO_RESOURCE_PATH" value="$(find enph353_gazebo)"/>
+		<env name="GAZEBO_MODEL_PATH" value="$(find enph353_gazebo)/models"/>
 	</include>
 	<include file="$(find enph_ai)/launch/desktop.launch"/>
 	<node pkg="adeept_awr_gazebo" type="velocity_clamp.py" name="fake_adeept_driver" output="screen">
