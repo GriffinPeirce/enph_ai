@@ -1,14 +1,17 @@
 <launch>
+
 	<node respawn="true" pkg="joy"
-        type="joy_node" name="enph_joy" >
+        type="joy_node" name="joy" >
 		<param name="dev" type="string" value="/dev/input/js0" />
 		<param name="deadzone" value="0.12" />
     </node>
     
-    <node pkg="teleop_twist_joy" type="teleop_node" name="teleop_node">
+    <node pkg="teleop_twist_joy" type="teleop_node" name="teleop_joy">
 		<rosparam command="load" file="$(find enph_ai)/config/teleop_twist_joy.yaml" />
 		<remap from="cmd_vel" to="joy_vel"/>
 	</node>
+
+	<node pkg="key_teleop" type="key_teleop.py" name="key_teleop" output="screen" launch-prefix="gnome-terminal --command"/>
 
 	<node pkg="twist_mux" type="twist_mux" name="twist_mux_node">
 		<rosparam command="load" file="$(find enph_ai)/config/twist_mux.yaml" />
