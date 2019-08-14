@@ -1,11 +1,13 @@
 <launch>
-	<include file="$(find adeept_car_gazebo)/launch/adeept_car_urdf.launch">
+  <param name="/use_sim_time" value="true" />
+
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<env name="GAZEBO_RESOURCE_PATH" value="$(find enph353_gazebo)"/>
 		<env name="GAZEBO_MODEL_PATH" value="$(find enph353_gazebo)/models"/>
+		<arg name="world_name" value="$(find enph353_gazebo)/worlds/353.world"/>
+		<arg name="gui" value="true"/>
 	</include>
-	<include file="$(find enph_ai)/launch/desktop.launch"/>
-	<node pkg="adeept_awr_gazebo" type="velocity_clamp.py" name="fake_adeept_driver" output="screen">
-		<param name="src_topic" value="cmd_vel"/>
-		<param name="dst_topic" value="diff_vel"/>
-	</node>
+
+	<include file="$(find enph_ai)/launch/robots.launch"/>
+
 </launch>
